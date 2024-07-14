@@ -12,6 +12,7 @@ dist
 
 # dependencies
 /node_modules
+bun.lockb
 
 # IDEs and editors
 /.idea
