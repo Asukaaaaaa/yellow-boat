@@ -42,6 +42,9 @@ pages_build_output_dir = "./dist"
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+kv_namespaces = [
+    { binding = "BILI_BANNER_STORE", id = "df4b86177adc4e6e825d84e27249061f" }
+]
 
 # Bind a Queue producer. Use this binding to schedule an arbitrary task that may be processed later by a Queue consumer.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#queue-producers
