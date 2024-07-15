@@ -7,7 +7,6 @@ import {
   onMount,
 } from 'solid-js';
 import { customElement } from 'solid-element';
-import { css } from 'solid-styled';
 
 interface BannerObj {
   name: string;
@@ -115,49 +114,53 @@ customElement('bili-banner', (props: { dataString: string }) => {
     }
   };
 
-  css`
-    .animated {
-      position: relative;
-      width: 100%;
-      min-width: 1000px;
-      height: 155px;
-      overflow: hidden;
-
-      > .layer {
-        top: 0;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        > img {
-          // display: none;
-        }
-      }
-      > .layer:has(video) {
-        // z-index: 9999;
-      }
-    }
-    .animated.exiting > .layer > * {
-      transition: all 0.5s ease-in-out;
-    }
-  `;
   return (
-    <div
-      ref={root!}
-      class="animated"
-      classList={{ exiting: isExiting() }}
-      onMouseEnter={handleMouse}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleMouse}
-    >
-      {data().split_layer.layers.map((_) => (
-        <Layer {..._} move={movementOver1()} />
-      ))}
-    </div>
+    <>
+      <div
+        ref={root!}
+        class="animated"
+        classList={{ exiting: isExiting() }}
+        onMouseEnter={handleMouse}
+        onMouseMove={handleMouse}
+        onMouseLeave={handleMouse}
+      >
+        {data().split_layer.layers.map((_) => (
+          <Layer {..._} move={movementOver1()} />
+        ))}
+      </div>
+      <style>
+        {`
+        .animated {
+          position: relative;
+          width: 100%;
+          min-width: 1000px;
+          height: 155px;
+          overflow: hidden;
+
+          > .layer {
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > img {
+              // display: none;
+            }
+          }
+          > .layer:has(video) {
+            // z-index: 9999;
+          }
+        }
+        .animated.exiting > .layer > * {
+          transition: all 0.5s ease-in-out;
+        }
+        `}
+      </style>
+    </>
   );
 });
 
