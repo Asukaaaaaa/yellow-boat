@@ -116,7 +116,6 @@ customElement('bili-banner', (props: { dataString: string }) => {
 
   return (
     <>
-      <meta name="referrer" content="no-referrer" />
       <div
         ref={root!}
         class="animated"
