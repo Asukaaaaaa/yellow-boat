@@ -25,5 +25,8 @@
     "@cloudflare/workers-types": "^4.20240712.0",
     "unenv": "^1.9.0",
     "wrangler": "^3.64.0"
+  },
+  "resolutions": {
+    "string-width": "4.2.3"
   }
 }
