@@ -19,7 +19,7 @@
     "vite-plugin-solid-styled": "^0.11.1"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240712.0",
