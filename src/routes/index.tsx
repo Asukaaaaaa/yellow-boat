@@ -1,8 +1,16 @@
 import { Meta, Title } from "@solidjs/meta";
+import { onMount } from "solid-js";
 import Counter from "~/components/Counter";
 import '~/components/bili-banner';
+import { access, KV_NAMESPACE } from "~/workers/kv-accessor";
 
 export default function Home() {
+  onMount(async () => {
+    const inst = await access(KV_NAMESPACE.BILI_BANNER_STORE);
+    const keys = inst.list();
+    const data = await inst.get(keys[0].name);
+    console.log('dididi', keys, data);
+  });
   return (
     <main>
       <Title>Hello World</Title>
